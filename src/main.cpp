@@ -8,8 +8,8 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
-using namespace std;
+#include "reception/Reception.hpp"
+#include "my.hpp"
 
 int main(int ac, char **av) {
     int mult, cooker, stockTime;
@@ -18,16 +18,14 @@ int main(int ac, char **av) {
         cout << "It's incorrect" << endl;
         exit(84);
     }
-    try
-    {
+    try {
         mult = stoi(av[1]);
         cooker = stoi(av[2]);
         stockTime = stoi(av[3]);
-    }
-    catch(const std::exception& e)
-    {
+    } catch(const std::exception& e) {
         cerr << e.what() << endl;
         exit(84);
     }
-    
+    Reception reception(mult, cooker, stockTime);
+    reception.launch();
 }

@@ -4,11 +4,12 @@ CC	= g++
 
 RM	= rm -f
 
-SRCS	= ./src/main.cpp 
+SRCS	= ./src/main.cpp \
+	  ./src/reception/Reception.cpp 
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CPPFLAGS = -I 
+CPPFLAGS = -I ./src/pp
 CPPFLAGS += -Wall -Wextra
 
 all: $(NAME)
