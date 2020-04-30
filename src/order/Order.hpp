@@ -7,13 +7,13 @@
 
 #ifndef ORDER_HPP_
 #define ORDER_HPP_
-
+#include "../my.hpp"
 class Order {
     public:
-        Order();
-        ~Order();
-
+        Order(std::string &command);
+        virtual ~Order();
     protected:
+        std::string _command;
     private:
 };
 

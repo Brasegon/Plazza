@@ -8,18 +8,19 @@
 #ifndef RECEPTION_HPP_
 #define RECEPTION_HPP_
 #include "../my.hpp"
-
+#include "../order/Order.hpp"
 class Reception {
     public:
         Reception(int mult, int cookers, int stockTime);
         ~Reception();
-
+        int requestOrder(std::string &command);
         void launch();
 
     protected:
         int mult;
         int cookers;
         int stockTime;
+        Order order;
     private:
 };
 

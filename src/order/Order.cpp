@@ -7,9 +7,11 @@
 
 #include "Order.hpp"
 
-Order::Order()
+Order::Order(std::string &command) : _command(command)
 {
 }
+
+
 
 Order::~Order()
 {
