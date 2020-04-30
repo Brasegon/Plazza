@@ -20,7 +20,6 @@ class Reception {
         int mult;
         int cookers;
         int stockTime;
-        Order order;
     private:
 };
 

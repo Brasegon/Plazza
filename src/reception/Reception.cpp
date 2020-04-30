@@ -18,6 +18,8 @@ Reception::~Reception()
 
 int Reception::requestOrder(std::string &command) {
     Order orders(command);
+    orders.parseOrder();
+    return (0);
 }
 
 void Reception::launch() {
@@ -28,7 +30,7 @@ void Reception::launch() {
         if (line.compare("quit") == 0) {
             exit(0);
         }
-        if (requestOrder(line) == -1) {
+        if (Reception::requestOrder(line) == -1) {
             cout << "Invalid Request Order" << endl;
         }
     }

@@ -15,6 +15,8 @@ class Order {
 
         void parseOrder();
         
+        //printer
+        void printOrders();
         //setter
         void setOrders(std::vector<std::string> &order);
         // getter
