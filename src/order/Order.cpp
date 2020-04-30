@@ -16,9 +16,19 @@ Order::~Order()
 }
 
 void Order::parseOrder() {
-    std::stringstream input(_command);
     std::string line;
-    while (std::getline(input, line, ';')) {
+    int j = 0;
+    
+    // std::cout << _command << endl;
+    // for (int i = 0; line[i] != '\0'; i += 1) {
+    //     if (!(line[i] == ' ' && line[i + 1] == ' ')) {
+    //         line.erase(i + 1, 1);
+    //     }
+    // }
+    std::istringstream input(_command);
+    char splitChar = ';';
+    while (std::getline(input, line, splitChar)) {
+        std::cout << line << endl;
         _orders.push_back(line);
     }
 }
