@@ -11,8 +11,18 @@ Order::Order(std::string &command) : _command(command)
 {
 }
 
-
-
 Order::~Order()
 {
+}
+
+void Order::parseOrder() {
+
+}
+
+void Order::setOrders(std::vector<std::string> &orders) {
+    _orders = orders;
+}
+
+const std::vector<std::string> &Order::getOrders() const {
+    return _orders;
 }

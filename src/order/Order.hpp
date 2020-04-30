@@ -12,8 +12,17 @@ class Order {
     public:
         Order(std::string &command);
         virtual ~Order();
+
+        void parseOrder();
+        
+        //setter
+        void setOrders(std::vector<std::string> &order);
+        // getter
+        const std::vector<std::string> &getOrders() const;
+    
     protected:
         std::string _command;
+        std::vector<std::string> _orders;
     private:
 };
 

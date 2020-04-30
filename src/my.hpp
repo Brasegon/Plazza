@@ -11,7 +11,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
+#include <vector>
 using namespace std;
 
 #endif /* !MY_HPP_ */
