@@ -19,6 +19,7 @@ Reception::~Reception()
 int Reception::requestOrder(std::string &command) {
     Order orders(command);
     orders.parseOrder();
+    // orders.printOrders();
     return (0);
 }
 
@@ -26,7 +27,7 @@ void Reception::launch() {
     string line;
 
     while (1) {
-        cin >> line;
+        getline(cin, line);
         if (line.compare("quit") == 0) {
             exit(0);
         }

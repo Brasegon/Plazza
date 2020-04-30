@@ -18,17 +18,18 @@ Order::~Order()
 void Order::parseOrder() {
     std::string line;
     int j = 0;
-    
-    // std::cout << _command << endl;
-    // for (int i = 0; line[i] != '\0'; i += 1) {
-    //     if (!(line[i] == ' ' && line[i + 1] == ' ')) {
-    //         line.erase(i + 1, 1);
-    //     }
-    // }
-    std::istringstream input(_command);
-    char splitChar = ';';
-    while (std::getline(input, line, splitChar)) {
-        std::cout << line << endl;
+    for (int i = 0; _command[i] != '\0'; i += 1) {
+        if ((_command[i] == ' ' && _command[i + 1] == ' ')) {
+            _command.erase(i + 1, 1);
+            i = 0;
+        }
+    }
+    std::stringstream input(_command);
+
+    while (std::getline(input, line, ';')) {
+        while (line[0] == ' ') {
+            line.erase(0, 1);
+        }
         _orders.push_back(line);
     }
 }
