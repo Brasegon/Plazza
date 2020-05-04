@@ -14,6 +14,7 @@ class Order {
         virtual ~Order();
 
         void parseOrder();
+        int createPizza(std::vector<string> order);
         
         //printer
         void printOrders();
@@ -21,6 +22,7 @@ class Order {
         void setOrders(std::vector<std::string> &order);
         // getter
         const std::vector<std::string> &getOrders() const;
+        PizzaType getOrderPizzaName(std::string name) const;
     
     protected:
         std::string _command;

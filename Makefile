@@ -7,6 +7,9 @@ RM	= rm -f
 SRCS	= ./src/kitchen/Kitchen.cpp \
 	  ./src/main.cpp \
 	  ./src/order/Order.cpp \
+	  ./src/order/pizzaOrder/pizzaType.cpp \
+	  ./src/pizza/Pizza.cpp \
+	  ./src/pizza/pizzaType/Margarita.cpp \
 	  ./src/reception/Reception.cpp 
 
 OBJS	= $(SRCS:.cpp=.o)
