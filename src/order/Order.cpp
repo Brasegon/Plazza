@@ -47,15 +47,11 @@ void Order::parseOrder() {
 }
 
 PizzaType Order::getOrderPizzaName(std::string name) const {
-    std::vector<std::string> tab = {"margarita"};
-    PizzaType (*func[])() = {&margarita, NULL};
+    std::map<std::string, std::function<PizzaType()>> tab = {
+        {"margarita", &margarita}
+    };
 
-    for (uint64_t i = 0; i < tab.size(); i += 1) {
-        if (name == tab[i]) {
-            return (func[i]());
-        }
-    }
-    return (Error);
+    return (tab[name] ? tab[name]() : Error);
 }
 
 int Order::createPizza(std::vector<string> order) {
@@ -66,7 +62,7 @@ int Order::createPizza(std::vector<string> order) {
     if ((pizzaName = getOrderPizzaName(order[0])) == Error) {
         return (-1);
     }
-    cout << "Je passe ici" << endl;
+    cout << pizzaName << endl;
     return (0);
 }
 
