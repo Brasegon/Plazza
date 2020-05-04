@@ -46,7 +46,7 @@ void Order::parseOrder() {
     }
 }
 
-int Order::getOrderPizzaName(std::string name, std::string size) const {
+int Order::getOrderPizzaName(std::string name, std::string size) {
     std::map<std::string, std::function<Pizza *(PizzaSize size_p)>> tab = {
         {"margarita", &margaritaPizza}
     };
@@ -59,6 +59,7 @@ int Order::getOrderPizzaName(std::string name, std::string size) const {
     };
     if (tab[name] && sizePizza[size]) {
         Pizza *pizza(tab[name](sizePizza[size]));
+        pizzaList.push_back(pizza);
         return (0);
     }
     return (-1);
@@ -88,4 +89,9 @@ void Order::setOrders(std::vector<std::string> &orders) {
 
 const std::vector<std::string> &Order::getOrders() const {
     return _orders;
+}
+
+const std::vector<Pizza *> &Order::getPizzaList() const
+{
+    return pizzaList;
 }

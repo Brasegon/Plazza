@@ -27,6 +27,7 @@ void Reception::launch() {
     string line;
 
     while (1) {
+        cout << "> ";
         getline(cin, line);
         if (line.compare("quit") == 0) {
             exit(0);

@@ -23,11 +23,13 @@ class Order {
         void setOrders(std::vector<std::string> &order);
         // getter
         const std::vector<std::string> &getOrders() const;
-        int getOrderPizzaName(std::string name, std::string size) const;
+        int getOrderPizzaName(std::string name, std::string size);
+        const std::vector<Pizza *> &getPizzaList() const;
     
     protected:
         std::string _command;
         std::vector<std::string> _orders;
+        std::vector<Pizza *> pizzaList;
     private:
 };
 Pizza *margaritaPizza(PizzaSize size);
