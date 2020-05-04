@@ -12,8 +12,11 @@
 class Pizza {
 
     public:
-        Pizza(PizzaType pizzaType, PizzaSize pizzaSize);
+        Pizza(PizzaType type, PizzaSize size);
+        Pizza(Pizza &cpy);
         ~Pizza();
+
+        const std::vector<std::string> &getIngredient() const;
 
     protected:
         PizzaType pizzaType;

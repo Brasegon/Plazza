@@ -17,7 +17,7 @@ Order::~Order()
 
 void Order::parseOrder() {
     std::string line;
-    int j = 0;
+
     for (int i = 0; _command[i] != '\0'; i += 1) {
         if ((_command[i] == ' ' && _command[i + 1] == ' ')) {
             _command.erase(i + 1, 1);
@@ -46,23 +46,34 @@ void Order::parseOrder() {
     }
 }
 
-PizzaType Order::getOrderPizzaName(std::string name) const {
-    std::map<std::string, std::function<PizzaType()>> tab = {
-        {"margarita", &margarita}
+int Order::getOrderPizzaName(std::string name, std::string size) const {
+    std::map<std::string, std::function<Pizza *(PizzaSize size_p)>> tab = {
+        {"margarita", &margaritaPizza}
     };
-
-    return (tab[name] ? tab[name]() : Error);
+    std::map<std::string, PizzaSize> sizePizza = {
+        {"S", S},
+        {"M", M},
+        {"L", L},
+        {"XL", XL},
+        {"XXL", XXL}
+    };
+    if (tab[name] && sizePizza[size]) {
+        Pizza *pizza(tab[name](sizePizza[size]));
+        return (0);
+    }
+    return (-1);
 }
 
 int Order::createPizza(std::vector<string> order) {
-    PizzaType pizzaName;
     if (order.size() != 3) {
         return (-1);
     }
-    if ((pizzaName = getOrderPizzaName(order[0])) == Error) {
+    if (order[1] != "S" && order[1] != "M" && order[1] != "L" && order[1] != "XL" && order[1] != "XXL") {
         return (-1);
     }
-    cout << pizzaName << endl;
+    if (getOrderPizzaName(order[0], order[1]) == -1) {
+        return (-1);
+    }
     return (0);
 }
 

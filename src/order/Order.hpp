@@ -8,6 +8,7 @@
 #ifndef ORDER_HPP_
 #define ORDER_HPP_
 #include "../my.hpp"
+#include "../pizza/Pizza.hpp"
 class Order {
     public:
         Order(std::string &command);
@@ -22,12 +23,12 @@ class Order {
         void setOrders(std::vector<std::string> &order);
         // getter
         const std::vector<std::string> &getOrders() const;
-        PizzaType getOrderPizzaName(std::string name) const;
+        int getOrderPizzaName(std::string name, std::string size) const;
     
     protected:
         std::string _command;
         std::vector<std::string> _orders;
     private:
 };
-
+Pizza *margaritaPizza(PizzaSize size);
 #endif /* !ORDER_HPP_ */

@@ -27,6 +27,7 @@ enum PizzaType
 };
 enum PizzaSize
 {
+    ErrorSize = -1,
     S = 1 ,
     M = 2 ,
     L = 4 ,
@@ -34,6 +35,7 @@ enum PizzaSize
     XXL = 16
 };
 
-PizzaType margarita();
+
+
 
 #endif /* !MY_HPP_ */

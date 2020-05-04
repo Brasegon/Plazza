@@ -8,10 +8,10 @@
 #ifndef MARGARITA_HPP_
 #define MARGARITA_HPP_
 #include "../Pizza.hpp"
-class Margarita : public Pizza {
+class MargaritaPizza : public Pizza {
     public:
-        Margarita(PizzaSize pizzaSize);
-        virtual ~Margarita();
+        explicit MargaritaPizza(PizzaSize pizzaSize);
+        virtual ~MargaritaPizza();
 
     protected:
     private:

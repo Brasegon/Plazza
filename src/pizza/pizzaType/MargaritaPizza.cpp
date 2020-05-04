@@ -5,9 +5,9 @@
 ** Margarita
 */
 
-#include "Margarita.hpp"
+#include "MargaritaPizza.hpp"
 
-Margarita::Margarita(PizzaSize pizzaSize) : Pizza((PizzaType) 2, pizzaSize)
+MargaritaPizza::MargaritaPizza(PizzaSize pizzaSize) : Pizza((PizzaType) 2, pizzaSize)
 {
     ingredient.push_back("doe");
     ingredient.push_back("tomato");
@@ -16,6 +16,6 @@ Margarita::Margarita(PizzaSize pizzaSize) : Pizza((PizzaType) 2, pizzaSize)
 
 }
 
-Margarita::~Margarita()
+MargaritaPizza::~MargaritaPizza()
 {
 }

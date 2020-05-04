@@ -5,9 +5,10 @@
 ** pizzaType
 */
 
-#include "../../my.hpp"
+#include "../../pizza/pizzaType/MargaritaPizza.hpp"
 
-PizzaType margarita()
+Pizza *margaritaPizza(PizzaSize size)
 {
-    return (Margarita);
+    Pizza *pizza = new MargaritaPizza(size);
+    return pizza;
 }
