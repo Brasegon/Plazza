@@ -22,6 +22,10 @@
 #include <sys/shm.h>
 #include <sys/types.h>
 #include <sys/msg.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 using namespace std;
 
 enum PizzaType

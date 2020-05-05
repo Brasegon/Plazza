@@ -26,11 +26,56 @@ int Reception::requestOrder(std::string &command) {
     std::cout << "==> Votre commande de " << orders.getPizzaList().size() << " pizza(s) a été effectué." << endl;
     return (0);
 }
+int Reception::check_kitchen() {
+    for (int i = cookers; i > 0; i--){
+        for (int j = 0; j < 20; j++) {
+            std::unique_lock<std::mutex> lock(_sharedMemory->mutex);
+            if (_sharedMemory->status[j][0] == i)
+                return j;
+            lock.unlock();
+        }
+    }
+    return (-1);
+}
+int Reception::createKitchen() {
+
+    for (int i = 0; i < 20; i++) {
+        std::unique_lock<std::mutex> lock(_sharedMemory->mutex);
+        if (_sharedMemory->status[i][0] == -1) {
+            return i;
+        }
+        lock.unlock();
+    }
+    return (-1);
+}
+
+void Reception::forkNewKitchen() {
+    pid_t pid;
+    int status = 0;
+    int id = 0;
+
+    if ((pid = fork()) == -1)
+        perror("fork");
+    if (pid == 0) {
+        if ((id = createKitchen()) != -1) {
+            Kitchen k(id, mult, cookers, stockTime);
+            while(true);
+        } else {
+            cout << "Not created kitchen because max kitchen" << endl;
+        }
+    }
+    waitpid(pid, &status, WNOHANG);
+}
 
 void Reception::sendOrders() {
-    // while (orderPizza.size()) {
-    //     std::this_thread::sleep_for (std::chrono::milliseconds(10));
-    // }
+    while (orderPizza.size()) {
+        std::this_thread::sleep_for (std::chrono::milliseconds(10));
+        if ((check_kitchen()) != -1) {
+            orderPizza.pop_back();
+        } else {
+            forkNewKitchen();
+        }
+    }
 }
 
 void Reception::status() {

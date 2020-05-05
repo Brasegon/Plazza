@@ -10,6 +10,7 @@
 #include "../my.hpp"
 #include "../order/Order.hpp"
 #include "../encapsulation/Encapsulation.hpp"
+#include "../kitchen/Kitchen.hpp"
 class Reception {
     public:
         Reception(int mult, int cookers, int stockTime);
@@ -18,6 +19,9 @@ class Reception {
         void launch();
         void status();
         void sendOrders();
+        int createKitchen();
+        int check_kitchen();
+        void forkNewKitchen();
 
     protected:
         int mult;
