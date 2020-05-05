@@ -19,21 +19,31 @@ Reception::~Reception()
 int Reception::requestOrder(std::string &command) {
     Order orders(command);
     orders.parseOrder();
-    orders.dump();
+    
+    for (uint64_t i = 0; i < orders.getPizzaList().size(); i += 1) {
+        orderPizza.push_back(orders.getPizzaList()[i]);
+    }
+    std::cout << "==> Votre commande de " << orders.getPizzaList().size() << " pizza(s) a été effectué." << endl;
     return (0);
 }
 
 void Reception::sendOrders() {
-    
+    // while (orderPizza.size()) {
+    //     std::this_thread::sleep_for (std::chrono::milliseconds(10));
+    // }
 }
 
 void Reception::status() {
     std::cout << "===== STATUS =====" << std::endl;
+    std::cout << "Nombre de Pizza en attente : " << orderPizza.size() << endl;
 }
 void Reception::launch() {
     string line;
+    _shm = new Encapsulation();
+    _sharedMemory = openSharedMemory();
     cout << "======= Welcome to Pizza'Tek =======" << endl;
     while (1) {
+        cout << "==> Que voulez vous ?" << endl;
         cout << "> ";
         getline(cin, line);
         if (line.compare("quit") == 0) {

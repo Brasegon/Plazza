@@ -15,6 +15,13 @@
 #include <sstream>
 #include <map>
 #include <functional>
+#include <thread>
+#include <chrono>
+#include <mutex>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <sys/types.h>
+#include <sys/msg.h>
 using namespace std;
 
 enum PizzaType
@@ -35,7 +42,11 @@ enum PizzaSize
     XXL = 16
 };
 
+typedef struct kitchen {
+    int status[20][10];
+    std::mutex mutex;
+} kitchen_t ;
 
-
+kitchen_t *openSharedMemory();
 
 #endif /* !MY_HPP_ */

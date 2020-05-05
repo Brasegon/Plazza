@@ -4,7 +4,8 @@ CC	= g++
 
 RM	= rm -f
 
-SRCS	= ./src/kitchen/Kitchen.cpp \
+SRCS	= ./src/encapsulation/Encapsulation.cpp \
+	  ./src/kitchen/Kitchen.cpp \
 	  ./src/main.cpp \
 	  ./src/order/Order.cpp \
 	  ./src/order/pizzaOrder/pizzaType.cpp \
@@ -15,7 +16,7 @@ SRCS	= ./src/kitchen/Kitchen.cpp \
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CPPFLAGS = -I ./src/kitchen/pp
+CPPFLAGS = -I ./src/encapsulation/pp
 CPPFLAGS += -Wall -Wextra
 
 all: $(NAME)

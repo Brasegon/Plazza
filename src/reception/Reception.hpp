@@ -9,6 +9,7 @@
 #define RECEPTION_HPP_
 #include "../my.hpp"
 #include "../order/Order.hpp"
+#include "../encapsulation/Encapsulation.hpp"
 class Reception {
     public:
         Reception(int mult, int cookers, int stockTime);
@@ -23,6 +24,8 @@ class Reception {
         int cookers;
         int stockTime;
         std::vector<Pizza *> orderPizza;
+        Encapsulation *_shm;
+        kitchen_t *_sharedMemory;
     private:
 };
 
