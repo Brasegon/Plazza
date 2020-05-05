@@ -34,4 +34,5 @@ class Order {
     private:
 };
 Pizza *margaritaPizza(PizzaSize size);
+Pizza *reginaPizza(PizzaSize size);
 #endif /* !ORDER_HPP_ */

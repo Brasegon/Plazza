@@ -5,18 +5,19 @@
 ** Regina
 */
 
-#include "Regina.hpp"
+#include "ReginaPizza.hpp"
 
-Regina::Regina(PizzaSize pizzaSize) : Pizza((PizzaType) 1, pizzaSize)
+ReginaPizza::ReginaPizza(PizzaSize pizzaSize) : Pizza((PizzaType) 1, pizzaSize)
 {
     ingredient.push_back("doe");
     ingredient.push_back("tomato");
     ingredient.push_back("gruyere");
     ingredient.push_back("ham");
     ingredient.push_back("mushrooms");
+    pizzaName = "Regina";
     time = 2;
 }
 
-Regina::~Regina()
+ReginaPizza::~ReginaPizza()
 {
 }

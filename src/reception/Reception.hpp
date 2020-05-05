@@ -15,11 +15,14 @@ class Reception {
         ~Reception();
         int requestOrder(std::string &command);
         void launch();
+        void status();
+        void sendOrders();
 
     protected:
         int mult;
         int cookers;
         int stockTime;
+        std::vector<Pizza *> orderPizza;
     private:
 };
 

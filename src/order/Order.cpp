@@ -18,6 +18,7 @@ Order::~Order()
 void Order::parseOrder() {
     std::string line;
 
+    pizzaList.clear();
     for (int i = 0; _command[i] != '\0'; i += 1) {
         if ((_command[i] == ' ' && _command[i + 1] == ' ')) {
             _command.erase(i + 1, 1);
@@ -48,7 +49,8 @@ void Order::parseOrder() {
 
 int Order::getOrderPizzaName(std::string name, std::string size, int number) {
     std::map<std::string, std::function<Pizza *(PizzaSize size_p)>> tab = {
-        {"margarita", &margaritaPizza}
+        {"margarita", &margaritaPizza},
+        {"regina", &reginaPizza}
     };
     std::map<std::string, PizzaSize> sizePizza = {
         {"S", S},

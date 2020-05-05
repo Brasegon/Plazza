@@ -9,10 +9,10 @@
 #define REGINA_HPP_
 #include "../Pizza.hpp"
 
-class Regina : public Pizza{
+class ReginaPizza : public Pizza{
     public:
-        Regina(PizzaSize pizzaSize);
-        virtual ~Regina();
+        ReginaPizza(PizzaSize pizzaSize);
+        virtual ~ReginaPizza();
 
     protected:
     private:
