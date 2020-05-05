@@ -12,19 +12,16 @@
 
 class Cooker
 {
+proctected:
+    int _multiplier;
+    int _id;
+    Kitchen *_kitchen;
+    bool _commandToCook
 private:
-    /* data */
 public:
-    Cooker(/* args */);
+    Cooker(Kitchen *kitchen, int multiplier, int id);
+    void processCooking();
     ~Cooker();
 };
-
-Cooker::Cooker(/* args */)
-{
-}
-
-Cooker::~Cooker()
-{
-}
 
 #endif /* !COOKER_HPP_ */
