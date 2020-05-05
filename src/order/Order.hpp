@@ -23,9 +23,10 @@ class Order {
         void setOrders(std::vector<std::string> &order);
         // getter
         const std::vector<std::string> &getOrders() const;
-        int getOrderPizzaName(std::string name, std::string size);
+        int getOrderPizzaName(std::string name, std::string size, int number);
         const std::vector<Pizza *> &getPizzaList() const;
-    
+        //dump
+        void dump();
     protected:
         std::string _command;
         std::vector<std::string> _orders;

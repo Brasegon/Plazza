@@ -17,10 +17,11 @@ class Pizza {
         ~Pizza();
 
         const std::vector<std::string> &getIngredient() const;
-
+        const std::string &getName() const;
     protected:
         PizzaType pizzaType;
         PizzaSize pizzaSize;
+        std::string pizzaName;
         std::vector<std::string> ingredient;
         int time;
     private:

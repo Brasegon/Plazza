@@ -21,6 +21,11 @@ Pizza::Pizza(Pizza &cpy)
 const std::vector<std::string> &Pizza::getIngredient() const {
     return ingredient;
 }
+
+const std::string &Pizza::getName() const {
+    return pizzaName;
+}
+
 Pizza::~Pizza()
 {
 }

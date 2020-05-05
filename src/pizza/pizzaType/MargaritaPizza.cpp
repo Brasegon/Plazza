@@ -12,6 +12,7 @@ MargaritaPizza::MargaritaPizza(PizzaSize pizzaSize) : Pizza((PizzaType) 2, pizza
     ingredient.push_back("doe");
     ingredient.push_back("tomato");
     ingredient.push_back("gruyere");
+    pizzaName = "Margarita";
     time = 1;
 
 }

@@ -46,7 +46,7 @@ void Order::parseOrder() {
     }
 }
 
-int Order::getOrderPizzaName(std::string name, std::string size) {
+int Order::getOrderPizzaName(std::string name, std::string size, int number) {
     std::map<std::string, std::function<Pizza *(PizzaSize size_p)>> tab = {
         {"margarita", &margaritaPizza}
     };
@@ -58,8 +58,10 @@ int Order::getOrderPizzaName(std::string name, std::string size) {
         {"XXL", XXL}
     };
     if (tab[name] && sizePizza[size]) {
-        Pizza *pizza(tab[name](sizePizza[size]));
-        pizzaList.push_back(pizza);
+        for (int i = 0; i < number; i += 1) {
+            Pizza *pizza(tab[name](sizePizza[size]));
+            pizzaList.push_back(pizza);
+        }
         return (0);
     }
     return (-1);
@@ -72,7 +74,7 @@ int Order::createPizza(std::vector<string> order) {
     if (order[1] != "S" && order[1] != "M" && order[1] != "L" && order[1] != "XL" && order[1] != "XXL") {
         return (-1);
     }
-    if (getOrderPizzaName(order[0], order[1]) == -1) {
+    if (getOrderPizzaName(order[0], order[1], stoi(order[2])) == -1) {
         return (-1);
     }
     return (0);
@@ -94,4 +96,10 @@ const std::vector<std::string> &Order::getOrders() const {
 const std::vector<Pizza *> &Order::getPizzaList() const
 {
     return pizzaList;
+}
+
+void Order::dump() {
+    for (uint64_t i = 0; i < pizzaList.size(); i += 1) {
+        cout << pizzaList[i]->getName() << endl;
+    }
 }

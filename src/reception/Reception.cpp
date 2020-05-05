@@ -19,7 +19,7 @@ Reception::~Reception()
 int Reception::requestOrder(std::string &command) {
     Order orders(command);
     orders.parseOrder();
-    // orders.printOrders();
+    orders.dump();
     return (0);
 }
 
