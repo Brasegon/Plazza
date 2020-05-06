@@ -9,7 +9,10 @@
 #define MY_HPP_
 
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <ctime>
+#include <chrono>
 #include <cstdlib>
 #include <vector>
 #include <sstream>
