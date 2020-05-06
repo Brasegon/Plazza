@@ -26,6 +26,7 @@ class Kitchen {
         int _mult;
         int _cookers;
         int _stockTime;
+        std::vector<Cooker *> _cookerList;
         pthread_t *_threads;
         kitchen_t *_sharedMemory;
         msg_t _receiveBuffer;

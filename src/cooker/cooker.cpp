@@ -7,7 +7,7 @@
 
 #include "cooker.hpp"
 
-Cooker::Cooker() : _actif(false)
+Cooker::Cooker() : _isWorking(false)
 {
     std::cout << "Created cooker: " << std::endl;
 }

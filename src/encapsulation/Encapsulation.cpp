@@ -17,16 +17,16 @@ Encapsulation::Encapsulation()
     _msqid = msgget(key2, IPC_CREAT | 0666);
 
     for (int i = 0; i < 20; i++) {
-        _sharedMemory->status[i][0] = -1;
-        _sharedMemory->status[i][1] = 5;
-        _sharedMemory->status[i][2] = 5;
-        _sharedMemory->status[i][3] = 5;
-        _sharedMemory->status[i][4] = 5;
-        _sharedMemory->status[i][5] = 5;
-        _sharedMemory->status[i][6] = 5;
-        _sharedMemory->status[i][7] = 5;
-        _sharedMemory->status[i][8] = 5;
-        _sharedMemory->status[i][9] = 5;
+        _sharedMemory->cooker[i] = -1;
+        _sharedMemory->ingredient[i][0] = 5;
+        _sharedMemory->ingredient[i][1] = 5;
+        _sharedMemory->ingredient[i][2] = 5;
+        _sharedMemory->ingredient[i][3] = 5;
+        _sharedMemory->ingredient[i][4] = 5;
+        _sharedMemory->ingredient[i][5] = 5;
+        _sharedMemory->ingredient[i][6] = 5;
+        _sharedMemory->ingredient[i][7] = 5;
+        _sharedMemory->ingredient[i][8] = 5;
     }
 }
 

@@ -14,11 +14,12 @@ class Cooker
 {
 
 private:
-    bool _actif;
+    Pizza *pizza;
 public:
     Cooker();
     void processCooking();
     ~Cooker();
+    bool _isWorking;
 };
 
 #endif /* !COOKER_HPP_ */

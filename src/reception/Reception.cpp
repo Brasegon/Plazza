@@ -30,7 +30,7 @@ int Reception::check_kitchen() {
     for (int i = cookers; i > 0; i--){
         for (int j = 0; j < 20; j++) {
             std::unique_lock<std::mutex> lock(_sharedMemory->mutex);
-            if (_sharedMemory->status[j][0] == i)
+            if (_sharedMemory->cooker[j] == i)
                 return j;
             lock.unlock();
         }
@@ -41,7 +41,7 @@ int Reception::createKitchen() {
 
     for (int i = 0; i < 20; i++) {
         std::unique_lock<std::mutex> lock(_sharedMemory->mutex);
-        if (_sharedMemory->status[i][0] == -1) {
+        if (_sharedMemory->cooker[i] == -1) {
             return i;
         }
         lock.unlock();
