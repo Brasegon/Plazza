@@ -9,6 +9,7 @@
 #define KITCHEN_HPP_
 #include "../my.hpp"
 #include "../cooker/cooker.hpp"
+#include "../encapsulation/Mutex.hpp"
 
 typedef struct msg {
     long mtype;
@@ -43,9 +44,11 @@ class Kitchen {
         pthread_t *_threads;
         kitchen_t *_sharedMemory;
         msg_t _receiveBuffer;
+        Mutex *mutex;
         int _msqid;
     private:
 };
 
 void reginaCooking(Params *p);
+void margaritaCooking(Params *p);
 #endif /* !KITCHEN_HPP_ */

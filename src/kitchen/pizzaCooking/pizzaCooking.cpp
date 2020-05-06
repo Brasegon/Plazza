@@ -24,3 +24,17 @@ void reginaCooking(Params *p) {
             p->cooker->_isWorking = false;
         }
 }
+void margaritaCooking(Params *p) {
+    if (p->_sharedMemory->ingredient[p->_id][1] > 0
+        && p->_sharedMemory->ingredient[p->_id][2] > 0
+        && p->_sharedMemory->ingredient[p->_id][3] > 0) {
+            cout << "Margarita is cooking" << endl;
+            std::this_thread::sleep_for(std::chrono::seconds(1 * p->_mult));
+            p->_sharedMemory->ingredient[p->_id][1] -= 1;
+            p->_sharedMemory->ingredient[p->_id][2] -= 1;
+            p->_sharedMemory->ingredient[p->_id][3] -= 1;
+            p->_sharedMemory->cooker[p->_id] += 1;
+            cout << "Margarita is ready" << endl;
+            p->cooker->_isWorking = false;
+        }
+}

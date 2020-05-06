@@ -14,7 +14,9 @@ SRCS	= ./src/cooker/cooker.cpp \
 	  ./src/pizza/pizzaType/MargaritaPizza.cpp \
 	  ./src/pizza/pizzaType/ReginaPizza.cpp \
 	  ./src/reception/Reception.cpp \
-	  ./src/kitchen/pizzaCooking/pizzaCooking.cpp
+	  ./src/kitchen/pizzaCooking/pizzaCooking.cpp \
+	  ./src/encapsulation/Mutex.cpp \
+	  ./src/encapsulation/Thread.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
