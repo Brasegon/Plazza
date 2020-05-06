@@ -54,4 +54,5 @@ typedef struct kitchen {
 
 kitchen_t *openSharedMemory();
 
+
 #endif /* !MY_HPP_ */

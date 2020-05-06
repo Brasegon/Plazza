@@ -15,6 +15,19 @@ typedef struct msg {
     Pizza *pizza;
 } msg_t;
 
+class Params {
+    public:
+        Params(int id, int mult, Cooker *cooker, int stockTime, kitchen_t *sharedMemory);
+        ~Params();
+        int _id;
+        int _mult;
+        Cooker *cooker;
+        int _stockTime;
+        kitchen_t *_sharedMemory;
+
+    protected:
+    private:
+};
 class Kitchen {
     public:
         Kitchen(int id, int mult, int cookers, int stockTime);
@@ -34,17 +47,5 @@ class Kitchen {
     private:
 };
 
-class Params {
-    public:
-        Params(int id, int mult, Cooker *cooker, int stockTime, kitchen_t *sharedMemory);
-        ~Params();
-
-    protected:
-        int _id;
-        int _mult;
-        Cooker *cooker;
-        int _stockTime;
-        kitchen_t *_sharedMemory;
-    private:
-};
+void reginaCooking(Params *p);
 #endif /* !KITCHEN_HPP_ */

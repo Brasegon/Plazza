@@ -13,7 +13,8 @@ SRCS	= ./src/cooker/cooker.cpp \
 	  ./src/pizza/Pizza.cpp \
 	  ./src/pizza/pizzaType/MargaritaPizza.cpp \
 	  ./src/pizza/pizzaType/ReginaPizza.cpp \
-	  ./src/reception/Reception.cpp 
+	  ./src/reception/Reception.cpp \
+	  ./src/kitchen/pizzaCooking/pizzaCooking.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

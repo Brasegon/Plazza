@@ -12,7 +12,6 @@
 #include "../encapsulation/Encapsulation.hpp"
 #include "../kitchen/Kitchen.hpp"
 
-
 class Reception {
     public:
         Reception(int mult, int cookers, int stockTime);
