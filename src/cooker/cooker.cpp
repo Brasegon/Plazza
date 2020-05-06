@@ -9,11 +9,13 @@
 
 Cooker::Cooker() : _isWorking(false)
 {
-    std::cout << "Created cooker: " << std::endl;
+    std::cout << "Created cooker" << std::endl;
 }
 
 Cooker::~Cooker()
 {
+    if (this->_pizzaReady)
+        delete this->_receiveBuffer;
 }
 
 void Cooker::processCooking()

@@ -12,14 +12,16 @@
 
 class Cooker
 {
-
-private:
-    Pizza *pizza;
-public:
-    Cooker();
-    void processCooking();
-    ~Cooker();
-    bool _isWorking;
+    private:
+        Pizza *pizza;
+    public:
+        Cooker();
+        void processCooking();
+        ~Cooker();
+        bool _pizzaReady;
+        bool _isWorking;
+    protected:
+        msg_t _receiveBuffer;
 };
 
 #endif /* !COOKER_HPP_ */
