@@ -12,11 +12,11 @@ Cooker::Cooker() : _isWorking(false)
     std::cout << "Created cooker" << std::endl;
 }
 
-Cooker::~Cooker()
-{
-    if (this->_pizzaReady)
-        delete this->_receiveBuffer;
-}
+// Cooker::~Cooker()
+// {
+//     if (this->_pizzaReady)
+//         delete this->_receiveBuffer;
+// }
 void Cooker::setPizza(Pizza *pizza) {
     _pizza = pizza;
 }
