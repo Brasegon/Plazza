@@ -69,11 +69,14 @@ void Reception::forkNewKitchen() {
 }
 
 void Reception::sendOrders() {
+    int id = 0;
+
     while (orderPizza.size()) {
         std::this_thread::sleep_for (std::chrono::milliseconds(10));
-        if ((check_kitchen()) != -1) {
+        if ((id = check_kitchen()) != -1) {
             _sendBuffer.pizza = orderPizza[orderPizza.size() - 1];
-            if (msgsnd(_shm->getMsqid(), &_sendBuffer, sizeof(Pizza), IPC_NOWAIT) < 0)
+            _sendBuffer.mtype = id + 1;
+            if (msgsnd(_shm->getMsqid(), &_sendBuffer, sizeof(Pizza *), IPC_NOWAIT) < 0)
                 cerr << "Erreur msgsnd" << endl;
             orderPizza.pop_back();
         } else {

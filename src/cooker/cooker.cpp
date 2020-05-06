@@ -7,12 +7,9 @@
 
 #include "cooker.hpp"
 
-Cooker::Cooker(Kitchen *kitchen, int multiplier, int id)
+Cooker::Cooker() : _actif(false)
 {
-    this->_multiplier = multiplier;
-    this->_id = id;
-    this->_kitchen = kitchen;
-    std::cout << "Created cooker: " << id << std::endl;
+    std::cout << "Created cooker: " << std::endl;
 }
 
 Cooker::~Cooker()

@@ -12,14 +12,11 @@
 
 class Cooker
 {
-proctected:
-    int _multiplier;
-    int _id;
-    Kitchen *_kitchen;
-    bool _commandToCook
+
 private:
+    bool _actif;
 public:
-    Cooker(Kitchen *kitchen, int multiplier, int id);
+    Cooker();
     void processCooking();
     ~Cooker();
 };

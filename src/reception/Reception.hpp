@@ -11,10 +11,7 @@
 #include "../order/Order.hpp"
 #include "../encapsulation/Encapsulation.hpp"
 #include "../kitchen/Kitchen.hpp"
-typedef struct msg {
-    long mtype;
-    Pizza *pizza;
-} msg_t;
+
 
 class Reception {
     public:

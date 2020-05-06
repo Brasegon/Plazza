@@ -10,6 +10,11 @@
 #include "../my.hpp"
 #include "../cooker/cooker.hpp"
 
+typedef struct msg {
+    long mtype;
+    Pizza *pizza;
+} msg_t;
+
 class Kitchen {
     public:
         Kitchen(int id, int mult, int cookers, int stockTime);
@@ -23,8 +28,22 @@ class Kitchen {
         int _stockTime;
         pthread_t *_threads;
         kitchen_t *_sharedMemory;
+        msg_t _receiveBuffer;
         int _msqid;
     private:
 };
 
+class Params {
+    public:
+        Params(int id, int mult, Cooker *cooker, int stockTime, kitchen_t *sharedMemory);
+        ~Params();
+
+    protected:
+        int _id;
+        int _mult;
+        Cooker *cooker;
+        int _stockTime;
+        kitchen_t *_sharedMemory;
+    private:
+};
 #endif /* !KITCHEN_HPP_ */
