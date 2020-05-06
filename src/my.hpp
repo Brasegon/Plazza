@@ -46,6 +46,7 @@ enum PizzaSize
     XXL = 16
 };
 
+
 typedef struct kitchen {
     int status[20][10];
     std::mutex mutex;

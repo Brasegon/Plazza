@@ -11,6 +11,11 @@
 #include "../order/Order.hpp"
 #include "../encapsulation/Encapsulation.hpp"
 #include "../kitchen/Kitchen.hpp"
+typedef struct msg {
+    long mtype;
+    Pizza *pizza;
+} msg_t;
+
 class Reception {
     public:
         Reception(int mult, int cookers, int stockTime);
@@ -27,10 +32,10 @@ class Reception {
         int mult;
         int cookers;
         int stockTime;
+        msg_t _sendBuffer;
         std::vector<Pizza *> orderPizza;
         Encapsulation *_shm;
         kitchen_t *_sharedMemory;
     private:
 };
-
 #endif /* !RECEPTION_HPP_ */

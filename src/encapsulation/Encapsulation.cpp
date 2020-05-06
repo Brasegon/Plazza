@@ -30,6 +30,11 @@ Encapsulation::Encapsulation()
     }
 }
 
+const int &Encapsulation::getMsqid() const noexcept
+{
+    return _msqid;
+}
+
 kitchen_t *openSharedMemory()
 {
     void *sharedMemory;

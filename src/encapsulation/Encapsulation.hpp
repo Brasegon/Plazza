@@ -13,7 +13,7 @@ class Encapsulation {
     public:
         Encapsulation();
         ~Encapsulation();
-
+        const int &getMsqid() const noexcept;
     protected:
     private:
         kitchen_t *_sharedMemory;

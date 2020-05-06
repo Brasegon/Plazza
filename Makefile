@@ -4,7 +4,8 @@ CC	= g++
 
 RM	= rm -f
 
-SRCS	= ./src/encapsulation/Encapsulation.cpp \
+SRCS	= ./src/cooker/cooker.cpp \
+	  ./src/encapsulation/Encapsulation.cpp \
 	  ./src/kitchen/Kitchen.cpp \
 	  ./src/main.cpp \
 	  ./src/order/Order.cpp \
@@ -16,13 +17,13 @@ SRCS	= ./src/encapsulation/Encapsulation.cpp \
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CPPFLAGS = -I ./src/encapsulation/pp
+CPPFLAGS = -I ./src/cooker/pp
 CPPFLAGS += -Wall -Wextra
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS) -lpthread
 
 clean:
 	$(RM) $(OBJS)

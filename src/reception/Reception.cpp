@@ -59,6 +59,7 @@ void Reception::forkNewKitchen() {
     if (pid == 0) {
         if ((id = createKitchen()) != -1) {
             Kitchen k(id, mult, cookers, stockTime);
+            k.run();
             while(true);
         } else {
             cout << "Not created kitchen because max kitchen" << endl;
@@ -71,6 +72,9 @@ void Reception::sendOrders() {
     while (orderPizza.size()) {
         std::this_thread::sleep_for (std::chrono::milliseconds(10));
         if ((check_kitchen()) != -1) {
+            _sendBuffer.pizza = orderPizza[orderPizza.size() - 1];
+            if (msgsnd(_shm->getMsqid(), &_sendBuffer, sizeof(Pizza), IPC_NOWAIT) < 0)
+                cerr << "Erreur msgsnd" << endl;
             orderPizza.pop_back();
         } else {
             forkNewKitchen();
