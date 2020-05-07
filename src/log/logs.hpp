@@ -13,16 +13,17 @@
 class Logs
 {
 protected:
-    auto _currentTime;
+    time_t _currentTime;
     std::string _logsDir;
     ofstream _logsFile;
 private:
-    void getDate(time_t time);
+    std::string getDate(time_t time);
     void getCurrentTime();
 public:
     Logs(/* args */);
     ~Logs();
     void initLogs();
+    void writeMessage(std::string msg);
 };
 
 #endif /* !LOGS_HPP_ */

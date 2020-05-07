@@ -16,7 +16,8 @@ SRCS	= ./src/cooker/cooker.cpp \
 	  ./src/reception/Reception.cpp \
 	  ./src/kitchen/pizzaCooking/pizzaCooking.cpp \
 	  ./src/encapsulation/Mutex.cpp \
-	  ./src/encapsulation/Thread.cpp
+	  ./src/encapsulation/Thread.cpp \
+	  ./src/log/logs.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

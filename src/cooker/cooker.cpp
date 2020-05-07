@@ -9,7 +9,6 @@
 
 Cooker::Cooker() : _isWorking(false)
 {
-    std::cout << "Created cooker" << std::endl;
 }
 
 // Cooker::~Cooker()

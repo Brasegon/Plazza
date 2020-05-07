@@ -9,10 +9,10 @@
 #include "../encapsulation/Thread.hpp"
 bool isActiveThread = true;
 
-Kitchen::Kitchen(int id, int mult, int cookers, int stockTime) : _id(id), _mult(mult), _cookers(cookers), _stockTime(stockTime)
+Kitchen::Kitchen(int id, int mult, int cookers, int stockTime, Logs *log) : _id(id), _mult(mult), _cookers(cookers), _stockTime(stockTime), _log(log)
 {
     mutex = new Mutex();
-    std::cout << "Created kitchen : " << _id << std::endl;
+    _log->writeMessage("Created kitchen : " + to_string(_id));
     _sharedMemory = openSharedMemory();
     mutex->lock();
     _sharedMemory->cooker[_id] = _cookers;
@@ -39,19 +39,26 @@ void Kitchen::run() {
     auto killKitchen = std::chrono::steady_clock::now();
     for (int i = 0; i < _cookers; i += 1) {
         Cooker *cooker = new Cooker();
+        _log->writeMessage("Kitchen n°" + to_string(_id) + ": Cooker n°" + to_string(i) + " created");
         _cookerList.push_back(cooker);
-        Params *p = new Params(_id, _mult, cooker, _stockTime, _sharedMemory);
+        Params *p = new Params(_id, _mult, cooker, _stockTime, _sharedMemory, _log);
         Thread *thread = new Thread(std::thread(cooking, p));
         t.push_back(thread);
-        t[i]->detach();
     }
     while (true) {
         if (std::chrono::duration_cast<std::chrono::duration<double>>(std::chrono::steady_clock::now() - killKitchen).count() > 5) {
+            mutex->lock();
             if (_sharedMemory->cooker[_id] == _cookers) {
-
+                _sharedMemory->cooker[_id] = -1;
                 isActiveThread = false;
+                for (uint64_t i = 0; i < _cookerList.size(); i += 1) {
+                    _log->writeMessage("Kitchen n°" + to_string(_id) + ": Cooker n°" + to_string(i) + " killed");
+                }
+                _log->writeMessage("Kitchen n°" + to_string(_id) + ": Killed");
                 raise(SIGTERM);
             }
+            mutex->unlock();
+            killKitchen = std::chrono::steady_clock::now();
         }
         if (msgrcv(_msqid, &_receiveBuffer, sizeof(Pizza *), _id + 1, MSG_NOERROR | IPC_NOWAIT) > 0) {
             for (uint64_t i = 0; i < _cookerList.size(); i += 1) {
@@ -74,7 +81,7 @@ void Kitchen::run() {
 Kitchen::~Kitchen()
 {
 }
-Params::Params(int id, int mult, Cooker *cooker, int stockTime, kitchen_t *sharedMemory) : _id(id), _mult(mult), cooker(cooker), _stockTime(stockTime), _sharedMemory(sharedMemory) {
+Params::Params(int id, int mult, Cooker *cooker, int stockTime, kitchen_t *sharedMemory, Logs *log) : _id(id), _mult(mult), cooker(cooker), _stockTime(stockTime), _sharedMemory(sharedMemory), _log(log) {
 
 }
 

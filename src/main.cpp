@@ -26,6 +26,7 @@ int main(int ac, char **av) {
         cerr << e.what() << endl;
         exit(84);
     }
-    Reception reception(mult, cooker, stockTime);
+    Logs *logger = new Logs();
+    Reception reception(mult, cooker, stockTime, logger);
     reception.launch();
 }

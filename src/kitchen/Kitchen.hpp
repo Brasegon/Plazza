@@ -10,6 +10,7 @@
 #include "../my.hpp"
 #include "../cooker/cooker.hpp"
 #include "../encapsulation/Mutex.hpp"
+#include "../log/logs.hpp"
 
 typedef struct msg {
     long mtype;
@@ -18,20 +19,21 @@ typedef struct msg {
 
 class Params {
     public:
-        Params(int id, int mult, Cooker *cooker, int stockTime, kitchen_t *sharedMemory);
+        Params(int id, int mult, Cooker *cooker, int stockTime, kitchen_t *sharedMemory, Logs *log);
         ~Params();
         int _id;
         int _mult;
         Cooker *cooker;
         int _stockTime;
         kitchen_t *_sharedMemory;
+        Logs *_log;
 
     protected:
     private:
 };
 class Kitchen {
     public:
-        Kitchen(int id, int mult, int cookers, int stockTime);
+        Kitchen(int id, int mult, int cookers, int stockTime, Logs *log);
         ~Kitchen();
         void run();
 
@@ -46,6 +48,7 @@ class Kitchen {
         msg_t _receiveBuffer;
         Mutex *mutex;
         int _msqid;
+        Logs *_log;
     private:
 };
 

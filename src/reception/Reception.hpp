@@ -11,10 +11,12 @@
 #include "../order/Order.hpp"
 #include "../encapsulation/Encapsulation.hpp"
 #include "../kitchen/Kitchen.hpp"
+#include "../log/logs.hpp"
+
 
 class Reception {
     public:
-        Reception(int mult, int cookers, int stockTime);
+        Reception(int mult, int cookers, int stockTime, Logs *log);
         ~Reception();
         int requestOrder(std::string &command);
         void launch();
@@ -32,6 +34,7 @@ class Reception {
         std::vector<Pizza *> orderPizza;
         Encapsulation *_shm;
         kitchen_t *_sharedMemory;
+        Logs *_log;
     private:
 };
 #endif /* !RECEPTION_HPP_ */
