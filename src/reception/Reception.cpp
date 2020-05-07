@@ -55,10 +55,8 @@ void Reception::forkNewKitchen() {
     pid_t pid;
     int status = 0;
     int id = 0;
-
-    if ((pid = fork()) == -1)
-        perror("fork");
-    if (pid == 0) {
+    Process *proc = new Process();
+    if (proc->getPid() == 0) {
         if ((id = createKitchen()) != -1) {
             Kitchen k(id, mult, cookers, stockTime, _log);
             k.run();
@@ -66,7 +64,7 @@ void Reception::forkNewKitchen() {
             cout << "Not created kitchen because max kitchen" << endl;
         }
     }
-    waitpid(pid, &status, WNOHANG);
+    proc->wait();
 }
 
 void Reception::sendOrders() {
@@ -87,8 +85,15 @@ void Reception::sendOrders() {
 }
 
 void Reception::status() {
+    Mutex *mutex = new Mutex();
     std::cout << "===== STATUS =====" << std::endl;
-    std::cout << "Nombre de Pizza en attente : " << orderPizza.size() << endl;
+    for (int i = 0; i < 20; i += 1) {
+        mutex->lock();
+        if (_sharedMemory->cooker[i] != -1) {
+            std::cout << "Kitchen n°" << i  << " active" << std::endl;
+        }
+        mutex->unlock();
+    }
 }
 void Reception::launch() {
     string line;

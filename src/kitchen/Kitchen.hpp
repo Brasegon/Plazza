@@ -19,7 +19,7 @@ typedef struct msg {
 
 class Params {
     public:
-        Params(int id, int mult, Cooker *cooker, int stockTime, kitchen_t *sharedMemory, Logs *log);
+        Params(int id, int mult, Cooker *cooker, int stockTime, kitchen_t *sharedMemory, Logs *log, int cook_id);
         ~Params();
         int _id;
         int _mult;
@@ -27,6 +27,7 @@ class Params {
         int _stockTime;
         kitchen_t *_sharedMemory;
         Logs *_log;
+        int _cook_id;
 
     protected:
     private:
@@ -36,6 +37,7 @@ class Kitchen {
         Kitchen(int id, int mult, int cookers, int stockTime, Logs *log);
         ~Kitchen();
         void run();
+        void killedKitchenAndCooks(std::chrono::_V2::steady_clock::time_point &killKitchen);
 
     protected:
         int _id;

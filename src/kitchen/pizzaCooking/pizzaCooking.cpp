@@ -12,7 +12,7 @@ void reginaCooking(Params *p) {
         && p->_sharedMemory->ingredient[p->_id][3] > 0
         && p->_sharedMemory->ingredient[p->_id][4] > 0
         && p->_sharedMemory->ingredient[p->_id][5] > 0) {
-            p->_log->writeMessage("Kitchen n°" + to_string(p->_id) + ": Regina is cooking");
+            p->_log->writeMessage("Kitchen n°" + to_string(p->_id) + ": Regina is cooking by Cooker n°" + to_string(p->_cook_id));
             p->_sharedMemory->ingredient[p->_id][1] -= 1;
             p->_sharedMemory->ingredient[p->_id][2] -= 1;
             p->_sharedMemory->ingredient[p->_id][3] -= 1;
@@ -25,7 +25,6 @@ void reginaCooking(Params *p) {
         }
 }
 void margaritaCooking(Params *p) {
-    p->_log->writeMessage("Kitchen n°" + to_string(p->_id) + ": Stock : \t" + to_string(p->_sharedMemory->ingredient[p->_id][1]));
     if (p->_sharedMemory->ingredient[p->_id][1] > 0
         && p->_sharedMemory->ingredient[p->_id][2] > 0
         && p->_sharedMemory->ingredient[p->_id][3] > 0) {

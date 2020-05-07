@@ -1,0 +1,55 @@
+====  LOGS 7/5/2020.13:53:27 ====
+[7/5/2020.13:53:27] Reception Created
+[7/5/2020.13:53:31] New Order
+[7/5/2020.13:53:31] Created kitchen : 0
+[7/5/2020.13:53:31] Kitchen n°0: Cooker n°0 created
+[7/5/2020.13:53:31] Kitchen n°0: Cooker n°1 created
+[7/5/2020.13:53:31] Kitchen n°0: Cooker n°2 created
+[7/5/2020.13:53:31] Kitchen n°0: Regina is cooking by Cooker n°0
+[7/5/2020.13:53:31] Kitchen n°0: Regina is cooking by Cooker n°1
+[7/5/2020.13:53:31] Kitchen n°0: Regina is cooking by Cooker n°2
+[7/5/2020.13:53:31] Created kitchen : 1
+[7/5/2020.13:53:31] Kitchen n°1: Cooker n°0 created
+[7/5/2020.13:53:31] Kitchen n°1: Cooker n°1 created
+[7/5/2020.13:53:31] Kitchen n°1: Cooker n°2 created
+[7/5/2020.13:53:31] Kitchen n°1: Regina is cooking by Cooker n°0
+[7/5/2020.13:53:31] Kitchen n°1: Regina is cooking by Cooker n°1
+[7/5/2020.13:53:31] Kitchen n°1: Regina is cooking by Cooker n°2
+[7/5/2020.13:53:31] Created kitchen : 2
+[7/5/2020.13:53:31] Kitchen n°2: Cooker n°0 created
+[7/5/2020.13:53:31] Kitchen n°2: Cooker n°1 created
+[7/5/2020.13:53:31] Kitchen n°2: Cooker n°2 created
+[7/5/2020.13:53:31] Kitchen n°2: Regina is cooking by Cooker n°0
+[7/5/2020.13:53:31] Kitchen n°2: Regina is cooking by Cooker n°1
+[7/5/2020.13:53:31] Kitchen n°2: Regina is cooking by Cooker n°2
+[7/5/2020.13:53:31] Created kitchen : 3
+[7/5/2020.13:53:31] Kitchen n°3: Cooker n°0 created
+[7/5/2020.13:53:31] Kitchen n°3: Cooker n°1 created
+[7/5/2020.13:53:31] Kitchen n°3: Cooker n°2 created
+[7/5/2020.13:53:31] Kitchen n°3: Regina is cooking by Cooker n°0
+[7/5/2020.13:54:11] Kitchen n°0: Regina is ready
+[7/5/2020.13:54:11] Kitchen n°0: Regina is ready
+[7/5/2020.13:54:11] Kitchen n°0: Regina is ready
+[7/5/2020.13:54:11] Kitchen n°1: Regina is ready
+[7/5/2020.13:54:11] Kitchen n°1: Regina is ready
+[7/5/2020.13:54:11] Kitchen n°1: Regina is ready
+[7/5/2020.13:54:11] Kitchen n°1: Cooker n°0 killed
+[7/5/2020.13:54:11] Kitchen n°1: Cooker n°1 killed
+[7/5/2020.13:54:11] Kitchen n°1: Cooker n°2 killed
+[7/5/2020.13:54:11] Kitchen n°1: Killed
+[7/5/2020.13:54:11] Kitchen n°2: Regina is ready
+[7/5/2020.13:54:11] Kitchen n°2: Regina is ready
+[7/5/2020.13:54:11] Kitchen n°2: Regina is ready
+[7/5/2020.13:54:11] Kitchen n°3: Regina is ready
+[7/5/2020.13:54:11] Kitchen n°3: Cooker n°0 killed
+[7/5/2020.13:54:11] Kitchen n°3: Cooker n°1 killed
+[7/5/2020.13:54:11] Kitchen n°3: Cooker n°2 killed
+[7/5/2020.13:54:11] Kitchen n°3: Killed
+[7/5/2020.13:54:16] Kitchen n°0: Cooker n°0 killed
+[7/5/2020.13:54:16] Kitchen n°0: Cooker n°1 killed
+[7/5/2020.13:54:16] Kitchen n°0: Cooker n°2 killed
+[7/5/2020.13:54:16] Kitchen n°0: Killed
+[7/5/2020.13:54:16] Kitchen n°2: Cooker n°0 killed
+[7/5/2020.13:54:16] Kitchen n°2: Cooker n°1 killed
+[7/5/2020.13:54:16] Kitchen n°2: Cooker n°2 killed
+[7/5/2020.13:54:16] Kitchen n°2: Killed

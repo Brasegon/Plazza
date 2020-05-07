@@ -18,15 +18,9 @@ Encapsulation::Encapsulation()
 
     for (int i = 0; i < 20; i++) {
         _sharedMemory->cooker[i] = -1;
-        _sharedMemory->ingredient[i][0] = 5;
-        _sharedMemory->ingredient[i][1] = 5;
-        _sharedMemory->ingredient[i][2] = 5;
-        _sharedMemory->ingredient[i][3] = 5;
-        _sharedMemory->ingredient[i][4] = 5;
-        _sharedMemory->ingredient[i][5] = 5;
-        _sharedMemory->ingredient[i][6] = 5;
-        _sharedMemory->ingredient[i][7] = 5;
-        _sharedMemory->ingredient[i][8] = 5;
+        for (int j = 0; j < 9; j += 1) {
+            _sharedMemory->ingredient[i][j] = 5;
+        }
     }
 }
 

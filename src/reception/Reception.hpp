@@ -12,7 +12,7 @@
 #include "../encapsulation/Encapsulation.hpp"
 #include "../kitchen/Kitchen.hpp"
 #include "../log/logs.hpp"
-
+#include "../encapsulation/Process.hpp"
 
 class Reception {
     public:
