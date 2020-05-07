@@ -86,11 +86,22 @@ void Reception::sendOrders() {
 
 void Reception::status() {
     Mutex *mutex = new Mutex();
+    std::vector<string> tab = {
+        "does", "tomatoes", "gruyere", "ham", "mushrooms", "steak", "eggplant", "goat cheese", "chief love"
+    };
     std::cout << "===== STATUS =====" << std::endl;
     for (int i = 0; i < 20; i += 1) {
         mutex->lock();
         if (_sharedMemory->cooker[i] != -1) {
             std::cout << "Kitchen n°" << i  << " active" << std::endl;
+            for (int j = 0; j < 9; j += 1) {
+                std::cout << "\t\tIngrédient " << tab[j] << ": ";
+                if (_sharedMemory->ingredient[i][j] == 0) {
+                    cout << "Rupture of Stock" << endl;
+                } else {
+                    cout << _sharedMemory->ingredient[i][j] << endl;
+                }
+            }
         }
         mutex->unlock();
     }

@@ -66,11 +66,15 @@ void Kitchen::run() {
         t[i]->detach();
     }
     while (true) {
+        std::vector<string> tab = {
+            "does", "tomatoes", "gruyere", "ham", "mushrooms", "steak", "eggplant", "goat cheese", "chief love"
+        };
         killedKitchenAndCooks(killKitchen);
         if (std::chrono::duration_cast<std::chrono::duration<double>>(std::chrono::steady_clock::now() - stock).count() > _stockTime / 1000) {
             for (int i = 0; i < 9; i++) {
                 mutex->lock();
                 if (_sharedMemory->ingredient[_id][i] < 5) {
+                    _log->writeMessage("Kitchen n°" + to_string(_id) + ": Add 1 " + tab[i]);
                     _sharedMemory->ingredient[_id][i] += 1;
                 }
                 mutex->unlock();

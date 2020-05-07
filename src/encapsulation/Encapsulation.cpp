@@ -15,7 +15,6 @@ Encapsulation::Encapsulation()
 
     key_t key2 = ftok("/etc/bashrc", 'B');
     _msqid = msgget(key2, IPC_CREAT | 0666);
-
     for (int i = 0; i < 20; i++) {
         _sharedMemory->cooker[i] = -1;
         for (int j = 0; j < 9; j += 1) {
