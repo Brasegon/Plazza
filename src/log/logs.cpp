@@ -36,11 +36,20 @@ std::string Logs::getDate(time_t now)
     std::string ret = day + month + year + hour;
     return (ret);
 }
-void Logs::writeMessage(std::string msg) {
-    this->_logsFile << "[" << getDate(time(0)) << "] " << msg << endl;
+void Logs::writeInfoMessage(std::string msg) {
+    this->_logsFile << "[INFO] - (at: " << getCurrentTime(time(0)) << ") " << msg << endl;
 }
 
-void Logs::getCurrentTime()
+void Logs::writeErrorMessage(std::string msg)
 {
-
+    this->_logsFile << "[ERROR] - (at: " << getCurrentTime(time(0)) << ") " << msg << endl;
+}
+std::string Logs::getCurrentTime(time_t now)
+{
+    tm *ltm = localtime(&now);
+    std::string hour = std::to_string(ltm->tm_hour);
+    std::string minutes = std::to_string(ltm->tm_min);
+    std::string seconds = std::to_string(ltm->tm_sec);
+    std::string ret = hour + ":" + minutes + ":" + seconds;
+    return (ret);
 }

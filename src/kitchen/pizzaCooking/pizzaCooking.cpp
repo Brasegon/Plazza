@@ -21,13 +21,14 @@ void reginaCooking(Params *p) {
                     numberIngredient += 1;
                 }
             }
+
         }
     }
     if (numberIngredient == 5) {
-        p->_log->writeMessage("Kitchen n°" + to_string(p->_id) + ": Regina is cooking by Cooker n°" + to_string(p->_cook_id));
+        p->_log->writeInfoMessage("Kitchen n°" + to_string(p->_id) + ": Regina is cooking by Cooker n°" + to_string(p->_cook_id));
         std::this_thread::sleep_for(std::chrono::seconds(2 * p->_mult));
         p->_sharedMemory->cooker[p->_id] += 1;
-        p->_log->writeMessage("Kitchen n°" + to_string(p->_id) + ": Regina is ready and work by Cooker n°" + to_string(p->_cook_id));
+        p->_log->writeInfoMessage("Kitchen n°" + to_string(p->_id) + ": Regina is ready and work by Cooker n°" + to_string(p->_cook_id));
         p->cooker->_isWorking = false;
     }
 }
@@ -45,10 +46,10 @@ void margaritaCooking(Params *p) {
         }
     }
     if (numberIngredient == 3) {
-        p->_log->writeMessage("Kitchen n°" + to_string(p->_id) + ": Margarita is cooking by Cooker n°" + to_string(p->_cook_id));
+        p->_log->writeInfoMessage("Kitchen n°" + to_string(p->_id) + ": Margarita is cooking by Cooker n°" + to_string(p->_cook_id));
         std::this_thread::sleep_for(std::chrono::seconds(1 * p->_mult));
         p->_sharedMemory->cooker[p->_id] += 1;
-        p->_log->writeMessage("Kitchen n°" + to_string(p->_id) + ": Margarita is ready and work by Cooker n°" + to_string(p->_cook_id));
+        p->_log->writeInfoMessage("Kitchen n°" + to_string(p->_id) + ": Margarita is ready and work by Cooker n°" + to_string(p->_cook_id));
         p->cooker->_isWorking = false;
     }
 }
