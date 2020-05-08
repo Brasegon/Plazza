@@ -35,4 +35,6 @@ class Order {
 };
 Pizza *margaritaPizza(PizzaSize size);
 Pizza *reginaPizza(PizzaSize size);
+Pizza *americanaPizza(PizzaSize size);
+Pizza *fantasiaPizza(PizzaSize size);
 #endif /* !ORDER_HPP_ */

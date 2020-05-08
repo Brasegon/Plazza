@@ -7,6 +7,8 @@
 
 #include "../../pizza/pizzaType/MargaritaPizza.hpp"
 #include "../../pizza/pizzaType/ReginaPizza.hpp"
+#include "../../pizza/pizzaType/AmericanaPizza.hpp"
+#include "../../pizza/pizzaType/FantasiaPizza.hpp"
 
 Pizza *margaritaPizza(PizzaSize size)
 {
@@ -17,5 +19,17 @@ Pizza *margaritaPizza(PizzaSize size)
 Pizza *reginaPizza(PizzaSize size)
 {
     Pizza *pizza = new ReginaPizza(size);
+    return pizza;
+}
+
+Pizza *americanaPizza(PizzaSize size)
+{
+    Pizza *pizza = new AmericanaPizza(size);
+    return pizza;
+}
+
+Pizza *fantasiaPizza(PizzaSize size)
+{
+    Pizza *pizza = new FantasiaPizza(size);
     return pizza;
 }

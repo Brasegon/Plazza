@@ -50,7 +50,9 @@ void Order::parseOrder() {
 int Order::getOrderPizzaName(std::string name, std::string size, int number) {
     std::map<std::string, std::function<Pizza *(PizzaSize size_p)>> tab = {
         {"margarita", &margaritaPizza},
-        {"regina", &reginaPizza}
+        {"regina", &reginaPizza},
+        {"americana", &americanaPizza},
+        {"fantasia", &fantasiaPizza}
     };
     std::map<std::string, PizzaSize> sizePizza = {
         {"S", S},

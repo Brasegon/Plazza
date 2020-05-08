@@ -1,7 +1,17 @@
-====  LOGS 8/5/2020.14:2:29 ====
-[8/5/2020.14:2:29] Reception Created
-[8/5/2020.14:2:32] New Order
-[8/5/2020.14:2:32] Created kitchen : 0
-[8/5/2020.14:2:32] Kitchen n°0: Cooker n°0 created
-[8/5/2020.14:2:32] Kitchen n°0: Cooker n°1 created
-[8/5/2020.14:2:32] Kitchen n°0: Cooker n°2 created
+====  LOGS 8/5/2020.15:14:52 ====
+[INFO] - (at: 15:14:52) Reception Created
+[INFO] - (at: 15:15:0) New Order
+[INFO] - (at: 15:15:0) Created kitchen : 0
+[INFO] - (at: 15:15:0) Kitchen n°0: Cooker n°0 created
+[INFO] - (at: 15:15:0) Kitchen n°0: Cooker n°1 created
+[INFO] - (at: 15:15:0) Kitchen n°0: Cooker n°2 created
+[INFO] - (at: 15:15:0) Kitchen n°0: Margarita is cooking by Cooker n°0
+[INFO] - (at: 15:15:0) Kitchen n°0: Margarita is cooking by Cooker n°1
+[INFO] - (at: 15:15:0) Kitchen n°0: Fantasia is cooking by Cooker n°2
+[INFO] - (at: 15:15:1) Kitchen n°0: Margarita is ready and work by Cooker n°0
+[INFO] - (at: 15:15:1) Kitchen n°0: Margarita is ready and work by Cooker n°1
+[INFO] - (at: 15:15:4) Kitchen n°0: Fantasia is ready and work by Cooker n°2
+[INFO] - (at: 15:15:5) Kitchen n°0: Cooker n°0 killed
+[INFO] - (at: 15:15:5) Kitchen n°0: Cooker n°1 killed
+[INFO] - (at: 15:15:5) Kitchen n°0: Cooker n°2 killed
+[INFO] - (at: 15:15:5) Kitchen n°0: Killed

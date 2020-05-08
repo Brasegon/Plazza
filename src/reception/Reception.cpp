@@ -107,9 +107,9 @@ void Reception::status() {
     }
 }
 void Reception::launch() {
-    string line;
     _shm = new Encapsulation();
     _sharedMemory = openSharedMemory();
+    string line;
     cout << "======= Welcome to Pizza'Tek =======" << endl;
     while (1) {
         cout << "==> Que voulez vous ?" << endl;

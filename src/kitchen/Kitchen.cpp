@@ -25,11 +25,7 @@ void cooking(Params *p) {
     Mutex *mutex = new Mutex();
     while (isActiveThread) {
         if (p->cooker->_isWorking) {
-            std::map<std::string, std::function<void (Params *p)>> tab = {
-                {"Regina", &reginaCooking},
-                {"Margarita", &margaritaCooking},
-            };
-            tab[p->cooker->getPizza()](p);
+            reginaCooking(p);
         }
     }
 }
@@ -95,6 +91,9 @@ void Kitchen::run() {
                     break;
                 }
             }
+            _sharedMemory = openSharedMemory();
+            key_t key = ftok("/etc/bashrc", 'B');
+            _msqid = msgget(key, 0666);
         }
 
     }
