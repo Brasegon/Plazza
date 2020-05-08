@@ -12,7 +12,7 @@ bool isActiveThread = true;
 Kitchen::Kitchen(int id, int mult, int cookers, int stockTime, Logs *log) : _id(id), _mult(mult), _cookers(cookers), _stockTime(stockTime), _log(log)
 {
     mutex = new Mutex();
-    _log->writeMessage("Created kitchen : " + to_string(_id));
+    _log->writeInfoMessage("Created kitchen : " + to_string(_id));
     _sharedMemory = openSharedMemory();
     mutex->lock();
     _sharedMemory->cooker[_id] = _cookers;
@@ -42,9 +42,9 @@ void Kitchen::killedKitchenAndCooks(std::chrono::_V2::steady_clock::time_point &
             _sharedMemory->cooker[_id] = -1;
             isActiveThread = false;
             for (uint64_t i = 0; i < _cookerList.size(); i += 1) {
-                _log->writeMessage("Kitchen n°" + to_string(_id) + ": Cooker n°" + to_string(i) + " killed");
+                _log->writeInfoMessage("Kitchen n°" + to_string(_id) + ": Cooker n°" + to_string(i) + " killed");
             }
-            _log->writeMessage("Kitchen n°" + to_string(_id) + ": Killed");
+            _log->writeInfoMessage("Kitchen n°" + to_string(_id) + ": Killed");
             raise(SIGTERM);
         }
         mutex->unlock();
@@ -58,7 +58,7 @@ void Kitchen::run() {
     std::chrono::_V2::steady_clock::time_point stock = std::chrono::steady_clock::now();
     for (int i = 0; i < _cookers; i += 1) {
         Cooker *cooker = new Cooker();
-        _log->writeMessage("Kitchen n°" + to_string(_id) + ": Cooker n°" + to_string(i) + " created");
+        _log->writeInfoMessage("Kitchen n°" + to_string(_id) + ": Cooker n°" + to_string(i) + " created");
         _cookerList.push_back(cooker);
         Params *p = new Params(_id, _mult, cooker, _stockTime, _sharedMemory, _log, i);
         Thread *thread = new Thread(std::thread(cooking, p));
@@ -74,7 +74,7 @@ void Kitchen::run() {
             for (int i = 0; i < 9; i++) {
                 mutex->lock();
                 if (_sharedMemory->ingredient[_id][i] < 5) {
-                    _log->writeMessage("Kitchen n°" + to_string(_id) + ": Add 1 " + tab[i]);
+                    _log->writeInfoMessage("Kitchen n°" + to_string(_id) + ": Add 1 " + tab[i]);
                     _sharedMemory->ingredient[_id][i] += 1;
                 }
                 mutex->unlock();

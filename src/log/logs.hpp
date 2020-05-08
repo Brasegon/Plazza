@@ -18,12 +18,13 @@ protected:
     ofstream _logsFile;
 private:
     std::string getDate(time_t time);
-    void getCurrentTime();
+    std::string getCurrentTime(time_t now);
 public:
     Logs(/* args */);
     ~Logs();
     void initLogs();
-    void writeMessage(std::string msg);
+    void writeInfoMessage(std::string msg);
+    void writeErrorMessage(std::string msg);
 };
 
 #endif /* !LOGS_HPP_ */

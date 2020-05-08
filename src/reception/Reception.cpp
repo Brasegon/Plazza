@@ -10,7 +10,7 @@
 
 Reception::Reception(int mult, int cookers, int stockTime, Logs *log) : mult(mult), cookers(cookers), stockTime(stockTime), _log(log)
 {
-    _log->writeMessage("Reception Created");
+    _log->writeInfoMessage("Reception Created");
 }
 
 Reception::~Reception()
@@ -24,7 +24,7 @@ int Reception::requestOrder(std::string &command) {
     for (uint64_t i = 0; i < orders.getPizzaList().size(); i += 1) {
         orderPizza.push_back(orders.getPizzaList()[i]);
     }
-    _log->writeMessage("New Order");
+    _log->writeInfoMessage("New Order");
     std::cout << "==> Votre commande de " << orders.getPizzaList().size() << " pizza(s) a été effectué." << endl;
     return (0);
 }
