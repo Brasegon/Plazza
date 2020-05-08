@@ -22,6 +22,9 @@ void Cooker::setPizza(Pizza *pizza) {
 const std::string &Cooker::getPizza() const {
     return (_pizza->getName());
 }
+const std::vector<string> &Cooker::getIngredient() const {
+    return _pizza->getIngredient();
+}
 void Cooker::processCooking()
 {
     while (12) {

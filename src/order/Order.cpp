@@ -70,13 +70,25 @@ int Order::getOrderPizzaName(std::string name, std::string size, int number) {
 }
 
 int Order::createPizza(std::vector<string> order) {
+    int number;
     if (order.size() != 3) {
         return (-1);
     }
-    if (order[1] != "S" && order[1] != "M" && order[1] != "L" && order[1] != "XL" && order[1] != "XXL") {
+    if (order[1] != "S" && order[1] != "M" && order[1] != "L" && order[1] != "XL" && order[1] != "XXL" && order[2][0] == 'x') {
         return (-1);
     }
-    if (getOrderPizzaName(order[0], order[1], stoi(order[2])) == -1) {
+    order[2].erase(0, 1);
+    try
+    {
+        number = stoi(order[2]);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return (-1);
+    }
+    
+    if (getOrderPizzaName(order[0], order[1], number) == -1) {
         return (-1);
     }
     return (0);

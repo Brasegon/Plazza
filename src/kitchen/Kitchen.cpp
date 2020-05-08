@@ -22,15 +22,14 @@ Kitchen::Kitchen(int id, int mult, int cookers, int stockTime, Logs *log) : _id(
 
 }
 void cooking(Params *p) {
-    while(isActiveThread) {
-        if (p->cooker->_isWorking ){
+    Mutex *mutex = new Mutex();
+    while (isActiveThread) {
+        if (p->cooker->_isWorking) {
             std::map<std::string, std::function<void (Params *p)>> tab = {
                 {"Regina", &reginaCooking},
                 {"Margarita", &margaritaCooking},
             };
             tab[p->cooker->getPizza()](p);
-        } else {
-            std::this_thread::yield();
         }
     }
 }
@@ -60,10 +59,12 @@ void Kitchen::run() {
         Cooker *cooker = new Cooker();
         _log->writeMessage("Kitchen n°" + to_string(_id) + ": Cooker n°" + to_string(i) + " created");
         _cookerList.push_back(cooker);
+        mutex->lock();
         Params *p = new Params(_id, _mult, cooker, _stockTime, _sharedMemory, _log, i);
         Thread *thread = new Thread(std::thread(cooking, p));
+        thread->detach();
         t.push_back(thread);
-        t[i]->detach();
+        mutex->unlock();
     }
     while (true) {
         std::vector<string> tab = {

@@ -9,8 +9,8 @@
 
 MargaritaPizza::MargaritaPizza(PizzaSize pizzaSize) : Pizza((PizzaType) 2, pizzaSize)
 {
-    ingredient.push_back("doe");
-    ingredient.push_back("tomato");
+    ingredient.push_back("does");
+    ingredient.push_back("tomatoes");
     ingredient.push_back("gruyere");
     pizzaName = "Margarita";
     time = 1;

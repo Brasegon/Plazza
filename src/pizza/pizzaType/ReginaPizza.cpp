@@ -9,8 +9,8 @@
 
 ReginaPizza::ReginaPizza(PizzaSize pizzaSize) : Pizza((PizzaType) 1, pizzaSize)
 {
-    ingredient.push_back("doe");
-    ingredient.push_back("tomato");
+    ingredient.push_back("does");
+    ingredient.push_back("tomatoes");
     ingredient.push_back("gruyere");
     ingredient.push_back("ham");
     ingredient.push_back("mushrooms");

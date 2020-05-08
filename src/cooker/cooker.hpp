@@ -34,6 +34,7 @@ public:
     bool _isWorking;
     void setPizza(Pizza *pizza);
     const std::string &getPizza() const;
+    const std::vector<string> &getIngredient() const;
 // >>>>>>> Pizza Yolo is presque ready
 };
 
